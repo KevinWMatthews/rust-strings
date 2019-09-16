@@ -26,7 +26,7 @@ fn main() {
     slice_and_string();
     slice_and_string_borrow();
 
-    // Slices are borrowed
+    // Slices are already borrowed
 
     string_and_slice();
     string_and_string();
