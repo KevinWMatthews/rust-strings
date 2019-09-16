@@ -5,8 +5,10 @@
 fn main() {
     two_slices();
     two_strings();
-    string_and_slice();
     slice_and_string();
+    slice_and_string_borrow();
+    string_and_slice();
+    string_borrow_and_slice();
 }
 
 // The str primitive does not implement Add<&str>
@@ -46,19 +48,36 @@ fn two_slices() {
 // https://doc.rust-lang.org/std/primitive.str.html#implementations
 // Can not add a String to a &str using `+`
 fn slice_and_string() {
-    let one = "one";
+    let one = String::from("one");
     let two = String::from("two");
+
+    let slice_one: &str = &one;
 
     // Compiler error:
     // `+` cannot be used to concatenate a `&str` with a `String`
     /*
-    let three = one + two;
+    let three = slice_one + two;
     */
 
     // Compiler error:
     // `+` cannot be used to concatenate a `&str` with a `String`
     /*
-    let three = String::from(one + two);
+    let three = String::from(slice_one + two);
+    */
+}
+
+fn slice_and_string_borrow() {
+    let one = String::from("one");
+    let two = String::from("two");
+
+    let slice_one: &str = &one;
+    let borrow_two: &String = &two;
+
+    // The &String is converted to a &str
+    // Compiler error:
+    // `+` cannot be used to concatenate two `&str` strings
+    /*
+    let three = slice_one + borrow_two;
     */
 }
 
@@ -87,10 +106,25 @@ fn two_strings() {
 // Can add String and &str using `+`
 fn string_and_slice() {
     let one = String::from("one");
-    let two = "two";
-    let three = one + two;
+    let two = String::from("two");
+    let slice_two: &str = &two;
+    let three = one + slice_two;
 
     let one = String::from("one");
-    let two = "two";
-    let three = String::from(one + two);
+    let two = String::from("two");
+    let borrow_two: &str = &two;
+    let three = String::from(one + borrow_two);
+}
+
+fn string_borrow_and_slice() {
+    let one = String::from("one");
+    let two = String::from("two");
+    let borrow_one: &String = &one;
+    let slice_two: &str = &two;
+
+    // Compiler error:
+    // `+` cannot be used to concatenate two `&str` strings
+    /*
+    let three = borrow_one + slice_two;
+    */
 }
