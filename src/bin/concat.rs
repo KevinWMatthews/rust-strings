@@ -1,3 +1,5 @@
+// Uncomment /* */ blocks to see compiler errors.
+
 #![allow(unused)]
 
 fn main() {
@@ -11,19 +13,32 @@ fn main() {
 // https://doc.rust-lang.org/std/primitive.str.html#implementations
 // Two &str's can not be added using `+`
 fn two_slices() {
-    let one = "one";
-    let two = "two";
+    let one = String::from("one");
+    let two = String::from("two");
 
+    let slice_one = &one;
+    let slice_two = &two;
+
+    // Inferred type: deref coercion converts String to &str
     // Compiler error:
     // `+` can not be used to concatenate two `&str` string
     /*
-    let three = one + two;
+    let three = slice_one + slice_two;
     */
 
     // Compiler error:
     // `+` can not be used to concatenate two `&str` string
     /*
     let three = String::from(one + two);
+    */
+
+    // Explicit type
+    let slice_one: &str = &one;
+    let slice_two: &str = &two;
+    // Compiler error:
+    // `+` can not be used to concatenate two `&str` string
+    /*
+    let three = slice_one + slice_two;
     */
 }
 
