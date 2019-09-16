@@ -113,7 +113,8 @@ fn string_and_slice() {
     let one = String::from("one");
     let two = String::from("two");
     let borrow_two: &str = &two;
-    let three = String::from(one + borrow_two);
+    // The &String is converted to a &str
+    let three = one + borrow_two;
 }
 
 fn string_borrow_and_slice() {
