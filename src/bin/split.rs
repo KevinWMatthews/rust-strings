@@ -26,7 +26,7 @@ fn main() {
     // pub struct Lines<'a>(_);
     let string = String::from("a\nb");
     let lines = string.lines();
-    // This also returns an iterator
+    // A Line also implements the Iterator trait
     for line in lines {
         dbg!(line);
     }

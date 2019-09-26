@@ -1,32 +1,26 @@
 # Strings
 
-Hey, don't forget this.
+Strings are complicated, but that's no excuse.
 
 
-## The Skinny
+## Background
 
 There are two types of strings:
 
   * `str` primitive type ("string slice")
   * `String` struct
 
-`str` from string literals vs `str` as borrowed from a `String`.
-
-Strings implement the [`Deref` trait](https://doc.rust-lang.org/std/string/struct.String.html#deref)
-
-
-## TODO
-
-  * Think more about slices and `&[..]` vs `&`
+Strings can also be created using the `format!` macro.
 
 
 ## Links
 
-Good:
+Rust docs:
 
-  * [so](https://stackoverflow.com/questions/24158114/what-are-the-differences-between-rusts-string-and-str/24159933#24159933)
+  * [`String`](https://doc.rust-lang.org/std/string/struct.String.html)
+  * [Stack Overflow post](https://stackoverflow.com/questions/24158114/what-are-the-differences-between-rusts-string-and-str/24159933#24159933)
 
-To read:
+Stuff to read:
 
   * [str vs String](http://www.ameyalokare.com/rust/2017/10/12/rust-str-vs-String.html#fn:1)
   * [reasons](http://dnsh.io/music/2016/10/06/string-concatenation-in-rust-is-not-tivial/)
@@ -35,3 +29,4 @@ To read:
   * [users 1](https://users.rust-lang.org/t/joining-str-many-ways/7790/8)
   * [best way](https://users.rust-lang.org/t/best-way-to-do-string-concatenation-in-2019-status-quo/24004)
   * [right way](https://users.rust-lang.org/t/what-is-right-ways-to-concat-strings/3780/5)
+  * [cool zine](https://github.com/jeenalee/zines/blob/master/string-and-andstr-in-rust.pdf)

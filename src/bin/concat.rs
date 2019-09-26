@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 // Uncomment /* */ blocks within functions to see compiler errors.
 
 /*
@@ -18,8 +20,6 @@ https://doc.rust-lang.org/std/string/struct.String.html#impl-Add%3C%26%27_%20str
 String, the Deref trait:
 https://doc.rust-lang.org/std/string/struct.String.html#impl-Deref
 */
-
-#![allow(unused)]
 
 fn main() {
     slice_and_slice();
